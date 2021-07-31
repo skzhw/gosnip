@@ -1,0 +1,49 @@
+{
+	"Println":{
+		"prefix": "p",
+		"body": ["fmt.Println($1)"]
+	},
+	"Func": {
+		"prefix": "fn",
+		"body": [
+			"func $1 (){",
+			"\t$2",
+			"}"
+		],
+		"description": "空のFunction"
+	},
+	"if error": {
+		"prefix": "e",
+		"body": [
+			"if err != nil {",
+				"\t$1",
+			"}"
+		],
+		"description": "if err print"
+	},
+	"if error log": {
+		"prefix": "iel",
+		"body": [
+			"if err != nil {",
+				"\tlog.Fatalln($1, err)",
+			"}"
+		]
+	},
+	"create struct": {
+		"prefix": "st",
+		"body": [
+			"type $1 struct {",
+			"\t$2",
+			"}"
+		]
+	},
+	"httpFunc": {
+		"prefix": "fh",
+		"body": [
+			"func $1(w http.ResponseWriter, req *http.Request){",
+			"",
+			"\t$2",
+			"}"
+		]
+	}
+}
